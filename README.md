@@ -1,27 +1,23 @@
-# TemplateDemo
+# Angular Component Interaction
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+We are going to take a closer look at the interactions that happen within the same component, that is between the component class and the component template. 
 
-## Development server
+We will start with binding. After that, we will see how to intercept the communication between the class and the template to perform some operations. We have two techniques for that:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* The split two-way binding syntax.
+* Getters and Setters
 
-## Code scaffolding
+We will also learn how the component class can get hold of a Dom element in the template using the view child decorator.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Binding
 
-## Build
+How angular makes it possible to push data values into the HTML controls and turn user responses into actions and value updates?
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To handle such a push and pull logic, angular provide four forms of binding, each form has a binding to the DOM, from the DOM or in both directions:
 
-## Running unit tests
+* Interpolation `{{…}}`: A one-way data binding from the component class to the template.
+* Property Binding `[…]`: A one-way data binding from the component class to a property of an html element.
+* Event Binding `(…)`: A one-way data binding from the html template to the component class. With event binding we can execute handlers on user interactions.
+* Two-Way Binding `[(…)]`: A two-way binding that combines property and event binding in a single notation. This form of binding ensures that the model and the view are always in sync.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Therefore, Binding is a basic form of interaction between the component class and it's corresponding template.
