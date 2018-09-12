@@ -43,3 +43,34 @@ Finaly, to execute additional lines of code, instead of assigning the updated va
 ```HTML
 <input [ngModel]="userName" (ngModelChange)="greetRani($event)" type="text">
 ```
+
+## Getters and Setters
+
+As an alternative to splitting the syntax, we also have Getters and Setters.
+
+Let's take the same example, whenever the input's value equals "Rani", an alert message should pop up displaying the message "Welcome back Rani". To achieve that using Getters and Setters, we begin by making the property private.
+
+```TypeScript
+private _customerName: string;
+```
+
+Next, we create the getter for this property. A getter is nothing but a function that returns the private property.
+
+```TypeScript
+get customerName(): string {
+    return this._customerName
+}
+```
+
+similarly, we create the setter for this property, A setter is nothing but a function that accepts a value and assigns the passed in value to the private property. And while setting the value, we can execute the additional code we wish to.
+
+```TypeScript
+set customerName(value: string) {
+    this._customerName = value;
+    if (value === 'Rani') {
+        alert('Hello Rani!')
+    }
+}
+```
+
+Note that what we are binding to ngModel here is the getter and setter functions, not the private property.
