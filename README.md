@@ -138,3 +138,5 @@ You can see that we have the nativeElement property. Expand it and you can see a
 Send data to a child component from the parent component.
 
 First let's generate a child component and specify the selector in app component template.
+
+A possible case: Several components make use of the loggedIn state. Rather than each component marinating its own logged in value, a single parent component maintains that value and passes it on as an input to the children components. To make this interaction of the parent component passing data to the child component possible, we make use of input decorators.

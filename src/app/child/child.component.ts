@@ -7,7 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  loggedIn = true;
+  @Input()
+  loggedIn: boolean;
 
   constructor() { }
 

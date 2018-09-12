@@ -12,6 +12,7 @@ export class AppComponent implements AfterViewInit {
   name: string;
   userName: string;
   private _customerName: string;
+  userLoggedIn = true;
   
   @ViewChild('nameRef')
   nameElementRef: ElementRef;
