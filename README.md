@@ -74,3 +74,57 @@ set customerName(value: string) {
 ```
 
 Note that what we are binding to ngModel here is the getter and setter functions, not the private property.
+
+## ViewChild Decorator
+
+How to access a DOM element in the template from the component class? Let's say, on page load we want to set the focus on the name input element. To do that we need to use the ViewChild decorator.
+
+First, attach a template reference variable to the input element.
+
+```HMTL
+<input #nameRef [(ngModel)]="name" type="text">
+```
+
+Second, create a property of type ElementRef that will hold a reference to this DOM element. Also, make sure to import ElementRef from '@angular/core'.
+
+```TypeScript
+export class AppComponent {
+    //..
+    nameElementRef: ElementRef;
+    //..
+}
+```
+
+Third, we need to tell this property which DOM element it has to reference. And for that, we make use of the viewChild decorator, specifying the template reference variable. Also make sure to import ViewChild from '@angular/core'.
+
+```TypeScript
+export class AppComponent {
+    //..
+    @ViewChild('nameRef')
+    nameElementRef: ElementRef;
+    //..
+}
+```
+
+Note: if we want to write component initialization code that uses the reference injected by this viewChild decorator, we need to do it inside the ngAfterViewinit lifecycle hook. It is inside that lifecycle the references to DOM elements become available.
+
+So, Fourth, let's implement the AfterViewInit lifecycle hook and make sure to import it from '@angular/core'. And then let's define the ngAfterViewInit method
+
+```TypeScript
+export class AppComponent {
+    //..
+    @ViewChild('nameRef') nameElementRef: ElementRef;
+
+    ngAfterViewInit() {
+        this.nameElementRef.nativeElement.focus();
+    }
+    //..
+}
+```
+`this.nameElementRef` is like a wrapper around the actual DOM element. So we need to go a step further and access the `nativeElement` property and then call the `focus()` method. You can do further exploration by logging to the console.
+
+```TypeScript
+console.log(this.nameElementRef);
+```
+
+You can see that we have the nativeElement property. Expand it and you can see all the DOM element properties and methods. So, you can either alter the property values or call the methods to meet your requirements.

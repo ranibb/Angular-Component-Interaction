@@ -9,7 +9,7 @@
 </div>
 
 <div>
-    <input [(ngModel)]="name" type="text">
+    <input #nameRef [(ngModel)]="name" type="text">
     <p>Welcome {{ name }}</p>
 </div>
 
@@ -23,3 +23,5 @@
     <input [(ngModel)]="customerName" type="text">
     <p>Welcome {{ name }}</p>
 </div>
+
+<div #el></div>
