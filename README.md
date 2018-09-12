@@ -140,3 +140,15 @@ Send data to a child component from the parent component.
 First let's generate a child component and specify the selector in app component template.
 
 A possible case: Several components make use of the loggedIn state. Rather than each component marinating its own logged in value, a single parent component maintains that value and passes it on as an input to the children components. To make this interaction of the parent component passing data to the child component possible, we make use of input decorators.
+
+### Getters and Setters
+
+Intercept a change in the @input property value and perform some operation.
+
+Instead of having two lines of code to display the appropriate message "Welcome back!" and "Please log in.", create a single property and assign the appropriate value. To do that we need to intercept the value passed in from the parent component to the child component.
+
+We have already seen a way to intercept property change where we used two-way binding split syntax with getters and setters. Now are going to use only getters and setters.
+
+As seen before, the setter makes it possible to intercept the value change and execute additional lines of code.
+
+So, whenever the @input value of loggedIn changes we intercept the change and set the appropriate message. So, based on the value that is passed in you can execute any logic and assign values to any properties in the component.

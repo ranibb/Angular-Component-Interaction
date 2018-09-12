@@ -1,7 +1,7 @@
 <div class="parentComponent">
 
     <h1>{{ pageTitle }}</h1>
-    
+
     <h2>Parent Component</h2>
     <div>
         <img [src]="imgUrl" alt="image">
@@ -29,7 +29,12 @@
     </div>
 
     <div #el></div>
-
-    <app-child></app-child>
+    
+    <div>
+        <button (click)="userLoggedIn=true">Login</button>
+        <button (click)="userLoggedIn=false">Logout</button>
+        {{userLoggedIn}}
+    </div>
+    <app-child [loggedIn]="userLoggedIn"></app-child>
 
 </div>
