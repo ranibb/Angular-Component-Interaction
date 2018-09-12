@@ -152,3 +152,40 @@ We have already seen a way to intercept property change where we used two-way bi
 As seen before, the setter makes it possible to intercept the value change and execute additional lines of code.
 
 So, whenever the @input value of loggedIn changes we intercept the change and set the appropriate message. So, based on the value that is passed in you can execute any logic and assign values to any properties in the component.
+
+### ngOnChanges
+
+Another approach to intercept the change in an @input property value is using the ngOnChanges of the onChanges lifecycle hook.
+
+To be able to use the ngOnChanges method, the component has to implement the onChanges lifecycle hook interface.
+
+Angular calls the ngOnChanges method whenever it detects changes to @input properties of the component.
+
+```TypeScript
+ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+}
+```
+
+You can see in the console that the changes object that is of type SimpleChanges has three properties:
+* previousValue: is the value of the input property before the change
+* currentValue: is the value of the input property after the change
+* firstChange: is a boolean value that indicates if the change was for the very first time or not.
+
+In our example, you can see that the currentValue is set to true. That value is passed from the parent component to the child component. firstChange is also set to true which means to say that the input property value changed for the very first time. And the previous value is undefined because we didn't set a default value.
+
+If you click on the logout button, observe the new object that has been logged to the console again with updated values. However, if you click again on the logout button, the object is not logged in the console because there was never a change in the input property value. Click on the login button and the object gets logged in the console.
+
+To set the appropriate message we can make use of these properties.
+
+So, you can either use getters and setters or ngOnChanges method to intercept @input property values and execute any custom logic necessary for your application. 
+
+*But when to use one over the other?*
+
+* ngOnChanges only working with child components.
+
+* It is recommended to use getters and setters when there is only one @input property.
+
+* If there are a lot of @input properties that you have to keep track of, then ngOnChanges is better as it is less lines of code compared to getters and setters. Also, with ngOnChanges we get access to these useful properties of the SimpleChanges object:
+    * You can make use of firstChange property to execute logic only the first time the value changes.
+    * You can also use the previousValue property to execute logic only when the value changes from a specific value.
