@@ -197,3 +197,7 @@ Summery, so far in the interaction with a child component, we have seen how the 
 A lot of times when you have nested components, you are going to want to access the properties and methods directly in the parent component. And the way we do that is using Template Reference Variables.
 
 But what if you want to access the properties and methods in the parent component class instead? for that we will have to make use of the ViewChild decorator which we have seen earlier.
+
+### ViewChild Decorator
+
+To access properties and methods of a child component from the parent component, we use the ViewChild Decorator.

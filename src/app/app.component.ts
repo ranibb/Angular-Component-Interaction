@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
+import { ChildComponent } from './child/child.component'
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,9 @@ export class AppComponent implements AfterViewInit {
   userName: string;
   private _customerName: string;
   userLoggedIn = true;
+
+  @ViewChild(ChildComponent)
+  childComponentRef: ChildComponent;
   
   @ViewChild('nameRef')
   nameElementRef: ElementRef;
@@ -28,6 +32,8 @@ export class AppComponent implements AfterViewInit {
 
     // this.renderer.setProperty(this.el.nativeElement, 'innerHTML', '<h1>Hello world</h1>');
     // console.log(this.el);
+
+    this.childComponentRef.message =" Message from the parent component";
   }
 
   get customerName(): string {
