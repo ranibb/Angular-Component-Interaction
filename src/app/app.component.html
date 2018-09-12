@@ -12,3 +12,9 @@
     <input [(ngModel)]="name" type="text">
     <p>Welcome {{ name }}</p>
 </div>
+
+
+<div>
+    <input [ngModel]="userName" (ngModelChange)="greetRani($event)" type="text">
+    <p>Welcome {{ userName }}</p>
+</div>

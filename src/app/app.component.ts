@@ -10,8 +10,17 @@ export class AppComponent {
   imgUrl = 'https://picsum.photos/200';
   count = 0;
   name: string;
+  userName: string;
 
   incrementCount() {
     this.count += 1;
   }
+
+  greetRani(updatedValue) {
+    this.userName = updatedValue;
+    if (updatedValue === 'Rani') {
+      alert('Welcome back Rani!')
+    }
+  }
+
 }
