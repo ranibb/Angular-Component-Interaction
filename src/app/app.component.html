@@ -1,27 +1,35 @@
-<h1>{{ pageTitle }}</h1>
-<div>
-    <img [src]="imgUrl" alt="image">
+<div class="parentComponent">
+
+    <h1>{{ pageTitle }}</h1>
+    
+    <h2>Parent Component</h2>
+    <div>
+        <img [src]="imgUrl" alt="image">
+    </div>
+
+    <div>
+        <button (click)="incrementCount()">Click</button>
+        <p>clicked {{ count }} times</p>
+    </div>
+
+    <div>
+        <input #nameRef [(ngModel)]="name" type="text">
+        <p>Welcome {{ name }}</p>
+    </div>
+
+
+    <div>
+        <input [ngModel]="userName" (ngModelChange)="greetRani($event)" type="text">
+        <p>Welcome {{ userName }}</p>
+    </div>
+
+    <div>
+        <input [(ngModel)]="customerName" type="text">
+        <p>Welcome {{ name }}</p>
+    </div>
+
+    <div #el></div>
+
+    <app-child></app-child>
+
 </div>
-
-<div>
-    <button (click)="incrementCount()">Click</button>
-    <p>clicked {{ count }} times</p>
-</div>
-
-<div>
-    <input #nameRef [(ngModel)]="name" type="text">
-    <p>Welcome {{ name }}</p>
-</div>
-
-
-<div>
-    <input [ngModel]="userName" (ngModelChange)="greetRani($event)" type="text">
-    <p>Welcome {{ userName }}</p>
-</div>
-
-<div>
-    <input [(ngModel)]="customerName" type="text">
-    <p>Welcome {{ name }}</p>
-</div>
-
-<div #el></div>

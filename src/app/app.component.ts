@@ -25,8 +25,8 @@ export class AppComponent implements AfterViewInit {
     this.nameElementRef.nativeElement.focus();
     console.log(this.nameElementRef);
 
-    this.renderer.setProperty(this.el.nativeElement, 'innerHTML', '<h1>Hello world</h1>');
-    console.log(this.el);
+    // this.renderer.setProperty(this.el.nativeElement, 'innerHTML', '<h1>Hello world</h1>');
+    // console.log(this.el);
   }
 
   get customerName(): string {

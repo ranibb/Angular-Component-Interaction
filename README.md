@@ -9,7 +9,9 @@ We will start with binding. After that, we will see how to intercept the communi
 
 We will also learn how the component class can get hold of a Dom element in the template using the view child decorator.
 
-## Binding
+## Interaction within a component
+
+### Binding
 
 How angular makes it possible to push data values into the HTML controls and turn user responses into actions and value updates?
 
@@ -22,7 +24,7 @@ To handle such a push and pull logic, angular provide four forms of binding, eac
 
 Therefore, Binding is a basic form of interaction between the component class and it's corresponding template.
 
-## The split Two-Way binding
+### The split Two-Way binding
 
 Sometimes when the template and the component interact, we might want to execute a few additional lines of code. 
 
@@ -44,7 +46,7 @@ Finaly, to execute additional lines of code, instead of assigning the updated va
 <input [ngModel]="userName" (ngModelChange)="greetRani($event)" type="text">
 ```
 
-## Getters and Setters
+### Getters and Setters
 
 As an alternative to splitting the syntax, we also have Getters and Setters.
 
@@ -75,7 +77,7 @@ set customerName(value: string) {
 
 Note that what we are binding to ngModel here is the getter and setter functions, not the private property.
 
-## ViewChild Decorator
+### ViewChild Decorator
 
 How to access a DOM element in the template from the component class? Let's say, on page load we want to set the focus on the name input element. To do that we need to use the ViewChild decorator.
 
@@ -128,3 +130,11 @@ console.log(this.nameElementRef);
 ```
 
 You can see that we have the nativeElement property. Expand it and you can see all the DOM element properties and methods. So, you can either alter the property values or call the methods to meet your requirements.
+
+## Interaction between different components e.g. Parent and Child
+
+### Input Decorator
+
+Send data to a child component from the parent component.
+
+First let's generate a child component and specify the selector in app component template.
