@@ -35,6 +35,12 @@
         <button (click)="userLoggedIn=false">Logout</button>
         {{userLoggedIn}}
     </div>
-    <app-child [loggedIn]="userLoggedIn"></app-child>
+    <app-child #child [loggedIn]="userLoggedIn"></app-child>
+
+    <!-- binding data from the app-child using the #child template reference variables -->
+    {{child.name}}
+
+    <!-- call the greetRani method of the app-child usgin the #child template reference variables -->
+    <button (click)="child.greetRani()">Greet</button>
 
 </div>

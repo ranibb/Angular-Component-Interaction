@@ -189,3 +189,11 @@ So, you can either use getters and setters or ngOnChanges method to intercept @i
 * If there are a lot of @input properties that you have to keep track of, then ngOnChanges is better as it is less lines of code compared to getters and setters. Also, with ngOnChanges we get access to these useful properties of the SimpleChanges object:
     * You can make use of firstChange property to execute logic only the first time the value changes.
     * You can also use the previousValue property to execute logic only when the value changes from a specific value.
+
+Summery, so far in the interaction with a child component, we have seen how the parent component can pass on data to the child component and at the same time, how the child component can intercept the change in that @input property value. Next let's see how the parent component can directly access properties and methods of the child component.
+
+### Template Reference Variables
+
+A lot of times when you have nested components, you are going to want to access the properties and methods directly in the parent component. And the way we do that is using Template Reference Variables.
+
+But what if you want to access the properties and methods in the parent component class instead? for that we will have to make use of the ViewChild decorator which we have seen earlier.
