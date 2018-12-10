@@ -7,7 +7,9 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class ChildComponent implements OnChanges {
 
-  @Input() loggedIn: boolean;
+  @Input()
+  loggedIn: boolean;
+
   message: string;
   name = 'Rani';
 
@@ -16,15 +18,15 @@ export class ChildComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
     const loggedInValue = changes['loggedIn'];
-    if (loggedInValue.currentValue == true) {
-      this.message = "Welcome back";
+    if (loggedInValue.currentValue === true) {
+      this.message = 'Welcome back';
     } else {
-      this.message = "Please log in.";
+      this.message = 'Please log in.';
     }
   }
 
   greetRani() {
-    alert('Hey Rani!')
+    alert('Hey Rani!');
   }
 
 }

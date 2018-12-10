@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
-import { ChildComponent } from './child/child.component'
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild(ChildComponent)
   childComponentRef: ChildComponent;
-  
+
   @ViewChild('nameRef')
   nameElementRef: ElementRef;
 
@@ -28,22 +28,22 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.nameElementRef.nativeElement.focus();
-    console.log(this.nameElementRef);
+    // console.log(this.nameElementRef);
 
     // this.renderer.setProperty(this.el.nativeElement, 'innerHTML', '<h1>Hello world</h1>');
     // console.log(this.el);
 
-    this.childComponentRef.message =" Message from the parent component";
+    this.childComponentRef.message = 'Message from the parent component';
   }
 
   get customerName(): string {
-    return this._customerName
+    return this._customerName;
   }
 
   set customerName(value: string) {
     this._customerName = value;
     if (value === 'Rani') {
-      alert('Hello Rani!')
+      alert('Hello Rani!');
     }
   }
 
@@ -54,7 +54,7 @@ export class AppComponent implements AfterViewInit {
   greetRani(updatedValue) {
     this.userName = updatedValue;
     if (updatedValue === 'Rani') {
-      alert('Welcome back Rani!')
+      alert('Welcome back Rani!');
     }
   }
 
